@@ -1,0 +1,48 @@
+install.packages(datatsets)
+library(datasets)
+
+plot(lynx)
+length(lynx) #114 observations
+#some autocorrelation might be present --> repetitive pattern
+#not seasonal one observation per year
+
+plot(LakeHuron)
+length(LakeHuron) #98 observations
+#Annual measurements (1875-1973) of Lake Huron water levels in feet
+#Annual data-->non-seasonal
+#Plot looks like a random walk (very little pattern)
+
+plot(nottem)
+length(nottem) #240 observations
+#Temp measurements (F) for 1920-1940 in Nottingham
+#Monthly dataset with 240 observations 
+#There is no trend or change in variance
+#A really good example for seasonal data
+
+plot(AirPassengers)
+length(AirPassengers) #144 observations
+#Several statistical trails influence the pattern; Trend; Seasonality, and Trend within the seasons
+  
+plot(EuStockMarkets)
+length(EuStockMarkets) #7440 observations
+#The major stock indices in Europe for 1991-1999
+#Multivariate time series data
+#Class=mts -->matrix structure
+#Trend is present for all four indices
+
+plot(sunspot.year)
+length(sunspot.year) #289 observations
+#Yearly data for 1700-1989
+#Autocorrelation might be present
+#The dataset might require a more sophisticated model
+
+?rnorm #randomly generate a number
+
+#1. R task view on time series analysis:
+#https://cran.r-project.org/web/views/TimeSeries.ht...
+#2. Package lubridate overview:
+#https://cran.r-project.org/web/packages/lubridate/...
+#3. Article on time and date classes in R (starting page 30):
+#https://cran.r-project.org/doc/Rnews/Rnews_2004-1....
+#4. Mini Book on statistical forecasting:
+#http://people.duke.edu/~rnau/411home.htm
