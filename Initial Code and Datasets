@@ -39,10 +39,12 @@ length(sunspot.year) #289 observations
 ?rnorm #randomly generate a number
 
 #1. R task view on time series analysis:
-#https://cran.r-project.org/web/views/TimeSeries.ht...
+#https://cran.r-project.org/web/views/TimeSeries.html
 #2. Package lubridate overview:
-#https://cran.r-project.org/web/packages/lubridate/...
+#https://cran.r-project.org/web/packages/lubridate/index.html
 #3. Article on time and date classes in R (starting page 30):
-#https://cran.r-project.org/doc/Rnews/Rnews_2004-1....
+#https://cran.r-project.org/doc/Rnews/Rnews_2004-1.pdf
 #4. Mini Book on statistical forecasting:
 #http://people.duke.edu/~rnau/411home.htm
+#5. Online Course on time series with R examples:
+#https://onlinecourses.science.psu.edu/stat510/node/33
