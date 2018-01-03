@@ -1,0 +1,53 @@
+#Time Series Script
+#R Base
+install.packages("datetime")
+
+### POSIXt classes in R
+x=as.POSIXct("2015-12-25 11:45:34") #nr of seconds
+y=as.POSIXlt("2015-12-25 11:45:34") #nr of seconds
+
+x; y#it gives the same output, but what is behind it?
+unclass(x) #[1] 1451043934
+
+unclass(y)
+
+#what does the number mean? (from 1970 to end of 2015)
+45*365*24*60*60  #1419120000 seconds output is not exactly the same
+
+y$zone #extracting the elements from POSIXlt
+
+#another class based on days
+x=as.Date("2015-12-25")
+x;class(x)
+unclass(x) #16794 number of days since 1970
+
+46*365 #nr of days since 1970; 16790 almost the same
+
+install.packages("chron")
+library(chron) #doesnt need a timezone; also uses 01.01.1970 as a reference
+x=chron("12/25/2015", "23:34:09")
+x
+class(x)
+unclass(x)
+
+#package lubridate is a useful time/date data function
+install.packages("lubridate")
+library(lubridate) 
+
+ymd(19931123) #"1993-11-23"
+dmy(23111993) #"1993-11-23"
+mdy(11231993) #"1993-11-23"
+
+#Use time and date together
+mytimepoint<-ymd_hm("1993-11-23 11:23", tz="Europe/Prague")
+mytimepoint
+#extracting the components of it
+minute(mytimepoint) #23
+day(mytimepoint) #23
+hour(mytimepoint) #11
+
+#change time values within object
+hour(mytimepoint)<-14 #changes 11 to 14
+mytimepoint
+
+olson_time_zones() #all the possible time zones you can use
