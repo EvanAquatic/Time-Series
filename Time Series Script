@@ -51,3 +51,66 @@ hour(mytimepoint)<-14 #changes 11 to 14
 mytimepoint
 
 olson_time_zones() #all the possible time zones you can use
+
+#Day of your time point
+wday(mytimepoint)
+
+wday(mytimepoint, label=T, abbr=F) #label to display the name of the day, no abb
+
+with_tz(mytimepoint, tz="Europe/London") #calculate which time our timepoint would be in anotehr time zone
+mytimepoint
+
+#time intervals
+time1=ymd_hm("1993-09-23 11:23", tz="Europe/Prague")
+time2=ymd_hm("1995-11-02 15:23", tz="Europe/Prague")
+
+#getting the interval
+myinterval=interval(time1, time2); myinterval
+class(myinterval)#interval is an object class from lubridate
+
+
+#Exercise lubridate dataframe
+#Three column for date, time, and measurement
+
+a=ymd(c(19981111, 19830123, 19820904, 19450509, 19821224, 19741203, 19871210), tz="CET")
+
+#time vector with different notations of input
+b=hms(c("22 4 5", "4-9-45", "11:9:56", "23 15 12", "14 26 34", "8 8 23", "21 16 14"))
+b
+
+f=rnorm(7,10)
+f=round(f, digits=2)
+f
+
+date_time_measurement=cbind.data.frame(date=a, time=b, measurement=f)
+date_time_measurement
+
+###Lubridate calculations
+#calculations with time
+minutes(7)
+
+#getting the duration
+dminutes(3) #minutes to seconds
+
+#add minutes and seconds
+minutes(2)+seconds(5)
+
+#which year was a leap year?
+leap_year(2009:2014)  #2009 was a leap year
+leap_year(2016) #TRUE
+
+ymd(20160101) + dyears(1) #correct command
+
+
+###Handling Data
+x=ymd_hm(tz="CET", "2014-04-12 23:12")
+minute(x)=7
+x
+
+with_tz(x, tz="Europe/London")
+y=ymd_hm(tz="CET", "2015-12-12 09:45")
+
+y-x  #Time difference of 608.4847 days
+
+
+http://r-tutorials.com/home/
